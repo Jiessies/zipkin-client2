@@ -13,7 +13,7 @@ public class MessageController {
     private MessageSender messageSender;
 
     @RequestMapping("/sendMsg")
-    public String service1() throws Exception {
+    public String sendMsg() {
         messageSender.sendMessage();
         return "success";
     }
