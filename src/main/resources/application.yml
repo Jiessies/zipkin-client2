@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: zipkin-client2
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #============================== http://192.168.128.42:9411 ZIPKIN 调用链，开发时可注掉 ==================================
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0  #zipkin采集率  0.1表示 10%采集率
+  redis:
+    host: test.redis01.yktour.com.cn
+    port: 6379
+    database: 0
+    password: E2071d7b!81B2Ba8
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 488
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+    #连接超时时间
+    timeout: 10000
+http:
+  pool:
+    max-totle: 200
+    max-per-route: 20
+    connect-request-timeout: 5000
+    connect-timeout: 5000
+    socket-timeout: 61000
+
+server:
+  port: 9000
